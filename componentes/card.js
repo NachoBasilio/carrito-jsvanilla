@@ -8,6 +8,8 @@ export default function card(nombre, precio, imagen, tipo, stock, generacion) {
     const generacionNodo = document.createElement("p")
     const contenedor = document.createElement("div")
 
+    contenedor.classList.add("contenedor")
+
     nombreNodo.innerText = nombre
     precioNodo.innerText = "$ "+precio
     imagenNodo.src = imagen

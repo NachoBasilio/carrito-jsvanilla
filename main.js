@@ -1,7 +1,10 @@
 import card from "./componentes/card";
 import header from "./componentes/header";
+import "./style.css"
 
 const app = document.getElementById("app")
+const contenedorCards = document.createElement("div")
+contenedorCards.classList.add("contenedor-mayor")
 
 const carrito = []
 
@@ -78,5 +81,7 @@ app.appendChild(headerPrincipal)
 
 
 figurasPokemon.map(pokemon =>{
-  app.appendChild(card(pokemon.nombre,pokemon.precio, pokemon.imagen, pokemon.tipo, pokemon.stock, pokemon.generacion))
+  contenedorCards.appendChild(card(pokemon.nombre,pokemon.precio, pokemon.imagen, pokemon.tipo, pokemon.stock, pokemon.generacion))
 })
+
+app.appendChild(contenedorCards)
