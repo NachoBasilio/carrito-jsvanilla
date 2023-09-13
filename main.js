@@ -1,10 +1,12 @@
 import card from "./componentes/card";
 import header from "./componentes/header";
+import eventoClic from "./helper/eventoClic";
 import "./style.css"
 
 const app = document.getElementById("app")
 const contenedorCards = document.createElement("div")
 contenedorCards.classList.add("contenedor-mayor")
+const carritoNodo = document.createElement("div")
 
 const carrito = []
 
@@ -79,9 +81,24 @@ const headerPrincipal = header("1", "PokeTienda")
 
 app.appendChild(headerPrincipal)
 
-
 figurasPokemon.map(pokemon =>{
-  contenedorCards.appendChild(card(pokemon.nombre,pokemon.precio, pokemon.imagen, pokemon.tipo, pokemon.stock, pokemon.generacion))
+  const cardNodo = card(
+    pokemon.nombre,
+    pokemon.precio, 
+    pokemon.imagen, 
+    pokemon.tipo, 
+    pokemon.stock, 
+    pokemon.generacion,
+    ()=>{
+      eventoClic(
+        carrito,
+        pokemon.nombre,
+        pokemon.precio, 
+        pokemon.imagen, 
+      )
+    }
+  )
+  contenedorCards.appendChild(cardNodo)
 })
 
 app.appendChild(contenedorCards)

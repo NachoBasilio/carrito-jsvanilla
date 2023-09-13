@@ -1,5 +1,5 @@
 
-export default function card(nombre, precio, imagen, tipo, stock, generacion) {
+export default function card(nombre, precio, imagen, tipo, stock, generacion, evento) {
     const nombreNodo = document.createElement("h3")
     const precioNodo = document.createElement("p")
     const imagenNodo = document.createElement("img")
@@ -20,6 +20,8 @@ export default function card(nombre, precio, imagen, tipo, stock, generacion) {
 
     const boton = document.createElement("button")
     boton.innerText = "Comprar"
+
+    boton.addEventListener("click", evento)
 
     contenedor.appendChild(nombreNodo)
     contenedor.appendChild(precioNodo)
