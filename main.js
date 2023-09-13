@@ -2,6 +2,7 @@ import card from "./componentes/card";
 import header from "./componentes/header";
 import eventoActualizador from "./helper/eventoActualizador";
 import eventoClic from "./helper/eventoClic";
+import eventoEliminador from "./helper/eventoEliminador";
 import "./style.css"
 
 const app = document.getElementById("app")
@@ -12,6 +13,7 @@ contenedorCards.classList.add("contenedor-mayor")
 
 //Carrito
 const carritoNodo = document.createElement("div")
+carritoNodo.classList.add("carrito")
 const carrito = []
 
 //Header
@@ -29,6 +31,7 @@ const figurasPokemon = [
     tipo: "Eléctrico",
     stock: 50,
     generacion: "Primera Generación",
+    id: 1
   },
   {
     nombre: "Charizard",
@@ -37,6 +40,7 @@ const figurasPokemon = [
     tipo: "Fuego/Volador",
     stock: 30,
     generacion: "Primera Generación",
+    id: 2
   },
   {
     nombre: "Eevee",
@@ -45,6 +49,7 @@ const figurasPokemon = [
     tipo: "Normal",
     stock: 60,
     generacion: "Primera Generación",
+    id: 3
   },
   {
     nombre: "Mewtwo",
@@ -53,6 +58,7 @@ const figurasPokemon = [
     tipo: "Psíquico",
     stock: 20,
     generacion: "Primera Generación",
+    id: 4
   },
   {
     nombre: "Greninja",
@@ -61,6 +67,7 @@ const figurasPokemon = [
     tipo: "Agua/Siniestro",
     stock: 25,
     generacion: "Sexta Generación",
+    id: 5
   },
   {
     nombre: "Lucario",
@@ -69,6 +76,7 @@ const figurasPokemon = [
     tipo: "Lucha/Acero",
     stock: 40,
     generacion: "Cuarta Generación",
+    id: 6
   },
   {
     nombre: "Garchomp",
@@ -77,6 +85,7 @@ const figurasPokemon = [
     tipo: "Dragón/Tierra",
     stock: 35,
     generacion: "Cuarta Generación",
+    id: 7
   },
   {
     nombre: "Incineroar",
@@ -85,9 +94,9 @@ const figurasPokemon = [
     tipo: "Fuego/Siniestro",
     stock: 28,
     generacion: "Séptima Generación",
+    id: 8
   },
 ];
-
 
 
 
@@ -105,7 +114,11 @@ figurasPokemon.map(pokemon =>{
         pokemon.nombre,
         pokemon.precio, 
         pokemon.imagen, 
-        ()=>{eventoActualizador(carrito, carritoNodo)}
+        pokemon.id,
+        ()=>{eventoActualizador(
+          carrito, 
+          carritoNodo
+        )}
       )
     }
   )

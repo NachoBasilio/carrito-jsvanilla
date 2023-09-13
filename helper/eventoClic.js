@@ -1,10 +1,11 @@
 
 
-export default function eventoClic(refCarrito, nombre, precio, img, actualizador) {
+export default function eventoClic(refCarrito, nombre, precio, img, id,actualizador) {
     refCarrito.push({
         nombre,
         precio,
-        img
+        img,
+        id
     })
     
     actualizador(refCarrito)
