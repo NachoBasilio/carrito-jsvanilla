@@ -9,11 +9,15 @@ export default function card(nombre, precio, imagen, tipo, stock, generacion) {
     const contenedor = document.createElement("div")
 
     nombreNodo.innerText = nombre
-    precioNodo.innerText = precio
+    precioNodo.innerText = "$ "+precio
     imagenNodo.src = imagen
     tipoNodo.innerText = tipo
     stockNodo.innerText = stock
     generacionNodo.innerText = generacion
+
+
+    const boton = document.createElement("button")
+    boton.innerText = "Comprar"
 
     contenedor.appendChild(nombreNodo)
     contenedor.appendChild(precioNodo)
@@ -21,6 +25,7 @@ export default function card(nombre, precio, imagen, tipo, stock, generacion) {
     contenedor.appendChild(tipoNodo)
     contenedor.appendChild(stockNodo)
     contenedor.appendChild(generacionNodo)
+    contenedor.appendChild(boton)
 
 
     return contenedor
